@@ -2,3 +2,35 @@ body{
     margin: 0;
     padding : 0;
 }
+
+.page{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header{
+    background-color: #FFDAB9;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    position: relative;
+}
+
+.shelf{
+    background-color: #FFAA80;
+    display: flex;
+    justify-content: space-around; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.add{
+    padding: 5vw;
+    color: rgb(73, 73, 73);
+    font-size: 3rem;
+    background-color: transparent;
+    border: transparent;
+}

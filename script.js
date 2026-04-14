@@ -16,11 +16,15 @@ function addBookToLibrary(book){
 function printLibrary(library){
     for(let i=0; i<library.length; i++){
         console.log(`The book ${library[i].title} is written by ${library[i].author} with ${library[i].pages} pages. Read is ${library[i].read}`);
+        console.log(`${library[i].id}`);
     }
 }
+
+const btn=document.querySelector(".add");
+btn.onclick=()=>alert("Hello World");
 
 const book1=new Book("Lebron", "James", 100, true);
 const book2= new Book("Steph", "Curry", 100, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
-printLibrary(myLibrary);
+printLibrary()
