@@ -67,6 +67,16 @@ function addBook(book){
         books.appendChild(bookCard);
 
 }
+/* Form Controls */
+
+const dialog = document.getElementById("my-dialog");
+const closeButton=document.querySelector("#close-button");
+closeButton.addEventListener("click", () => {
+    dialog.close();
+});
+
+
+
 
 
 /*
@@ -77,4 +87,4 @@ const book1=new Book("Lebron", "James", 100, true);
 const book2= new Book("Steph", "Curry", 100, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
-printLibrary(myLibrary);
+
