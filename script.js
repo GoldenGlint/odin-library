@@ -75,6 +75,23 @@ closeButton.addEventListener("click", () => {
     dialog.close();
 });
 
+const form=document.querySelector("#book-form");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formInfo=event.target;
+
+    const formData = new FormData(formInfo);
+    const title=formData.get("title");
+    const author=formData.get("author");
+    const pages=formData.get("pages");
+    const read=formData.get("read");
+    const newBook= new Book(title, author, pages, read);
+    addBook(newBook);
+
+})
+
+
+
 
 
 
