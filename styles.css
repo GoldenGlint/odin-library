@@ -34,3 +34,36 @@ body{
     background-color: transparent;
     border: transparent;
 }
+
+/* card styling */
+
+.book-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 0.5px solid #e0e0e0;
+  padding: 1.25rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+.book-title { font-size: 16px; font-weight: 500; margin: 0; }
+.book-author { font-size: 13px; color: gray; margin: 0; }
+.book-divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 0; }
+.book-meta { font-size: 13px; color: gray; }
+.book-meta span { color: black; font-weight: 500; }
+.read-badge { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 8px; }
+.read { background: #FFDAB9; color: #9b5e2f; }
+.unread { background: #f0f0f0; color: gray; }
+.remove-btn {
+  background: none;
+  border: 0.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: gray;
+  width: 100%;
+  margin-top: 8px;
+}
