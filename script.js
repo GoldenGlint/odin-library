@@ -42,7 +42,7 @@ function printLibrary(library){
 
         span.classList.add("read-badge");
         
-        if(library[i].read==True){
+        if(library[i].read==true){
             span.classList.add("read");
             span.textContent="Read";
         }
@@ -57,12 +57,15 @@ function printLibrary(library){
         div.appendChild(title);
         div.appendChild(author);
 
-        const books=document.querySelector(".books");
         bookCard.appendChild(div);
         bookCard.appendChild(divider);
         bookCard.appendChild(pages);
         bookCard.appendChild(span);
         bookCard.appendChild(button);
+
+        const books=document.querySelector(".books");
+        books.appendChild(bookCard);
+
     }
 }
 
@@ -75,4 +78,4 @@ const book1=new Book("Lebron", "James", 100, true);
 const book2= new Book("Steph", "Curry", 100, false);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
-printLibrary()
+printLibrary(myLibrary);

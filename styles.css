@@ -35,6 +35,11 @@ body{
     border: transparent;
 }
 
+.books{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
 /* card styling */
 
 .book-card {
