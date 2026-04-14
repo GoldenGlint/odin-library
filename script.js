@@ -1,4 +1,4 @@
-const myLibrary=[]
+let myLibrary=[]
 
 function Book(title, author, pages, read){
     this.id=crypto.randomUUID();
@@ -25,6 +25,7 @@ function addBook(book){
         const bookCard=document.createElement("div");
 
         bookCard.classList.add("book-card");
+        bookCard.dataset.id=book.id;
 
         title.classList.add("book-title");
         author.textContent=book.author;
@@ -53,6 +54,9 @@ function addBook(book){
 
         button.textContent = "Remove";
         button.classList.add("remove-btn");
+        button.addEventListener("click", ()=>{
+            removeBook(book.id, bookCard)
+        })
 
         div.appendChild(title);
         div.appendChild(author);
@@ -95,9 +99,11 @@ form.addEventListener("submit", (event) => {
 
 })
 
-
-
-
+/* remove button */
+function removeBook(id, cardElement) {
+  myLibrary = myLibrary.filter(book => book.id !== id);
+  cardElement.remove();
+}
 
 
 
