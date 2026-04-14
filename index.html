@@ -16,8 +16,24 @@
             <div class="button-container">
                 <button class="add" command="show-modal" commandfor="dialog">+ Add Book</button>
                 <dialog id="dialog" popover>
-                    <p>This dialog was opened using a popovertargetaction attribute.</p>
-                    <button commandfor="dialog" command="close">Close</button>
+                    <form id="book-form">
+
+                        <label for="title">Book Title</label>
+                        <input type="text" id="title" name="title">
+
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author">
+
+                        <label for="pages">Pages</label>
+                        <input type="number" id="pages" name="pages">
+
+                        <label for="read">Read</label>
+                        <input type="checkbox" id="read" name="read">
+
+                        <button type="submit">Submit</button>
+                        <button commandfor="dialog" command="close">Close</button>
+                    </form>
+                    
                 </dialog>
             </div>
             <div class="books">
