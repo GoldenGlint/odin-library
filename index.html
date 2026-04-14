@@ -14,7 +14,11 @@
         
         <div class="shelf">
             <div class="button-container">
-                <button class="add">+ Add Book</button>
+                <button class="add" command="show-modal" commandfor="dialog">+ Add Book</button>
+                <dialog id="dialog" popover>
+                    <p>This dialog was opened using a popovertargetaction attribute.</p>
+                    <button commandfor="dialog" command="close">Close</button>
+                </dialog>
             </div>
             <div class="books">
                 

@@ -11,10 +11,10 @@ function Book(title, author, pages, read){
 
 function addBookToLibrary(book){
     myLibrary.push(book);
+    addBook(book);
 }
 
-function printLibrary(library){
-    for(let i=0; i<library.length; i++){
+function addBook(book){
         const div = document.createElement("div");
         const title = document.createElement("p");
         const author = document.createElement("p");
@@ -27,9 +27,9 @@ function printLibrary(library){
         bookCard.classList.add("book-card");
 
         title.classList.add("book-title");
-        author.textContent=library[i].author;
+        author.textContent=book.author;
 
-        title.textContent=library[i].title;
+        title.textContent=book.title;
         author.classList.add("book-author");
 
         divider.classList.add("book-divider");
@@ -37,12 +37,12 @@ function printLibrary(library){
         pages.classList.add("book-meta");
         pages.textContent = "Pages: ";
         const pagesSpan = document.createElement("span");
-        pagesSpan.textContent = library[i].pages;
+        pagesSpan.textContent = book.pages;
         pages.appendChild(pagesSpan);
 
         span.classList.add("read-badge");
         
-        if(library[i].read==true){
+        if(book.read==true){
             span.classList.add("read");
             span.textContent="Read";
         }
@@ -66,13 +66,12 @@ function printLibrary(library){
         const books=document.querySelector(".books");
         books.appendChild(bookCard);
 
-    }
 }
 
 
-
+/*
 const btn=document.querySelector(".add");
-btn.onclick=()=>alert("Hello World");
+btn.onclick=()=>alert("Hello World");*/
 
 const book1=new Book("Lebron", "James", 100, true);
 const book2= new Book("Steph", "Curry", 100, false);
