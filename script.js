@@ -69,7 +69,7 @@ function addBook(book){
 }
 /* Form Controls */
 
-const dialog = document.getElementById("my-dialog");
+const dialog = document.getElementById("dialog");
 const closeButton=document.querySelector("#close-button");
 closeButton.addEventListener("click", () => {
     dialog.close();
@@ -87,6 +87,11 @@ form.addEventListener("submit", (event) => {
     const read=formData.get("read");
     const newBook= new Book(title, author, pages, read);
     addBook(newBook);
+
+    const myDialog=document.querySelector("#dialog")
+    dialog.close();
+    form.reset();
+
 
 })
 
