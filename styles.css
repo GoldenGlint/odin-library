@@ -58,7 +58,7 @@ body{
 .book-divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 0; }
 .book-meta { font-size: 13px; color: gray; }
 .book-meta span { color: black; font-weight: 500; }
-.read-badge { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 8px; }
+.read-badge { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 8px; border: 0.5px solid #e0e0e0}
 .read { background: #FFDAB9; color: #9b5e2f; }
 .unread { background: #f0f0f0; color: gray; }
 .remove-btn {

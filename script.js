@@ -20,7 +20,7 @@ function addBook(book){
         const author = document.createElement("p");
         const divider=document.createElement("hr")
         const pages = document.createElement("p");
-        const span = document.createElement("span");
+        const readButton = document.createElement("button");
         const button = document.createElement("button");
         const bookCard=document.createElement("div");
 
@@ -41,21 +41,25 @@ function addBook(book){
         pagesSpan.textContent = book.pages;
         pages.appendChild(pagesSpan);
 
-        span.classList.add("read-badge");
+        readButton.classList.add("read-badge");
         
         if(book.read==true){
-            span.classList.add("read");
-            span.textContent="Read";
+            readButton.classList.add("read");
+            readButton.textContent="Read";
         }
         else{
-            span.classList.add("unread");
-            span.textContent="Unread";
+            readButton.classList.add("unread");
+            readButton.textContent="Unread";
         }
+
+        readButton.addEventListener("click", ()=>{
+            readToggle(book.id, bookCard);
+        })
 
         button.textContent = "Remove";
         button.classList.add("remove-btn");
         button.addEventListener("click", ()=>{
-            removeBook(book.id, bookCard)
+            removeBook(book.id, bookCard);
         })
 
         div.appendChild(title);
@@ -64,7 +68,7 @@ function addBook(book){
         bookCard.appendChild(div);
         bookCard.appendChild(divider);
         bookCard.appendChild(pages);
-        bookCard.appendChild(span);
+        bookCard.appendChild(readButton);
         bookCard.appendChild(button);
 
         const books=document.querySelector(".books");
@@ -103,6 +107,27 @@ form.addEventListener("submit", (event) => {
 function removeBook(id, cardElement) {
   myLibrary = myLibrary.filter(book => book.id !== id);
   cardElement.remove();
+}
+
+function readToggle(id, cardElement){
+    for(let i=0; i<myLibrary.length; i++){
+        if(myLibrary[i].id==id){
+            if(myLibrary[i].read==true){
+                myLibrary[i].read=false;
+                const card=cardElement.querySelector(".read");
+                card.classList.remove("read");
+                card.classList.add("unread");
+                card.textContent="Unread";
+            }
+            else{
+                myLibrary[i].read=true;
+                const card=cardElement.querySelector(".unread");
+                card.classList.remove("unread");
+                card.classList.add("read");
+                card.textContent="Read";
+            }
+        }
+    }
 }
 
 
