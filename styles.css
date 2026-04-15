@@ -53,7 +53,7 @@ body{
   gap: 12px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
 }
-.book-title { font-size: 16px; font-weight: 500; margin: 0; }
+.book-title {font-size: 16px; font-weight: 500; margin: 0; }
 .book-author { font-size: 13px; color: gray; margin: 0; }
 .book-divider { border: none; border-top: 0.5px solid #e0e0e0; margin: 0; }
 .book-meta { font-size: 13px; color: gray; }
@@ -71,4 +71,66 @@ body{
   color: gray;
   width: 100%;
   margin-top: 8px;
+}
+
+/* Book Form */
+dialog {
+  width: 40%;
+  min-width: 300px; /* so it doesn't get too small on mobile */
+  padding: 2rem;
+  height: 50%;
+
+  background-color: #FFF8F4;
+  border: rgb(255, 207, 33, 0.1) 2px solid;
+  border-radius: 10px;
+}
+
+#book-form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+.book-div{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.book-div label{
+    color: #7a4f3a;
+    align-self: center;
+}
+
+.book-div input {
+  border: 1px solid #c9772f;
+  border-radius: 6px;
+  padding: 0.3rem;
+  background-color: #fff;
+  outline: none;
+  align-self: center;
+}
+
+.button-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+#submit-button{
+    padding: 0.5rem;
+    background-color: #c9772f;
+    color: rgb(59, 39, 0);
+    border-radius: 10px;
+    border: 2px solid rgb(73, 57, 0);
+}
+
+#close-button{
+    padding: 0.5rem;
+    background-color: rgb(255, 97, 97);
+    color: rgb(59, 39, 0);
+    border-radius: 10px;
+    border: 2px solid rgb(73, 57, 0) ;
 }

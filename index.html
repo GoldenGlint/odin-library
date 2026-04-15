@@ -15,23 +15,31 @@
         <div class="shelf">
             <div class="button-container">
                 <button class="add" command="show-modal" commandfor="dialog">+ Add Book</button>
-                <dialog id="dialog" popover>
+                <dialog id="dialog">
                     <form id="book-form">
+                        <div class="book-div">
+                            <label for="title">Book Title</label>
+                            <input type="text" id="title" name="title">
+                        </div>
+                        
+                        <div class="book-div">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" name="author">
+                        </div>
 
-                        <label for="title">Book Title</label>
-                        <input type="text" id="title" name="title">
+                        <div class="book-div">
+                            <label for="pages">Pages</label>
+                            <input type="number" id="pages" name="pages">
+                        </div>
 
-                        <label for="author">Author</label>
-                        <input type="text" id="author" name="author">
-
-                        <label for="pages">Pages</label>
-                        <input type="number" id="pages" name="pages">
-
-                        <label for="read">Read</label>
-                        <input type="checkbox" id="read" name="read">
-
-                        <button id = "submit-button" type="submit">Submit</button>
-                        <button id="close-button" commandfor="dialog" command="close">Close</button>
+                        <div class="book-div">
+                            <label for="read">Read</label>
+                            <input type="checkbox" id="read" name="read">
+                        </div>
+                        <div class="button-footer">
+                            <button id = "submit-button" type="submit">Submit</button>
+                            <button id="close-button" commandfor="dialog" command="close">Close</button>
+                        </div>
                     </form>
                     
                 </dialog>
