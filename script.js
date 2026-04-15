@@ -43,7 +43,7 @@ function addBook(book){
 
         readButton.classList.add("read-badge");
         
-        if(book.read==true){
+        if(book.read){
             readButton.classList.add("read");
             readButton.textContent="Read";
         }
@@ -92,9 +92,9 @@ form.addEventListener("submit", (event) => {
     const title=formData.get("title");
     const author=formData.get("author");
     const pages=formData.get("pages");
-    const read=formData.get("read");
+    const read=formData.get("read") === "on"; 
     const newBook= new Book(title, author, pages, read);
-    addBook(newBook);
+    addBookToLibrary(newBook);
 
     const myDialog=document.querySelector("#dialog")
     dialog.close();
