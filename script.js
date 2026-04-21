@@ -1,20 +1,26 @@
-let myLibrary=[]
+//Library Class below
 
-function Book(title, author, pages, read){
-    this.id=crypto.randomUUID();
-    this.title=title
-    this.author=author
-    this.pages=pages
-    this.read=read
+class Library{
+    #books=[];
+    #numBooks=0;
 
-}
+    get numBooks(){
+        return this.#numBooks;
+    }
+    get books(){
+        return this.#books;
+    }
+    
+    increaseBooks(){
+        this.#numBooks++
+    }
 
-function addBookToLibrary(book){
-    myLibrary.push(book);
-    addBook(book);
-}
+    addBookToLibrary(book){
+        this.increaseBooks();
+        this.addBook(book);
+    }
 
-function addBook(book){
+    addBook(book){
         const div = document.createElement("div");
         const title = document.createElement("p");
         const author = document.createElement("p");
@@ -73,9 +79,89 @@ function addBook(book){
 
         const books=document.querySelector(".books");
         books.appendChild(bookCard);
+    }
+
+    removeBook(id, cardElement) {
+        this.#books = this.#books.filter(book => book.id !== id);
+        cardElement.remove();
+    }
+
+    readToggle(id, cardElement){
+        for(let i=0; i<this.#numBooks; i++){
+            if(this.#books[i].id==id){
+                if(this.#books[i].read==true){
+                    this.#books[i].read=false;
+                    const card=cardElement.querySelector(".read");
+                    card.classList.remove("read");
+                    card.classList.add("unread");
+                    card.textContent="Unread";
+                }
+                else{
+                    this.#books[i].read=true;
+                    const card=cardElement.querySelector(".unread");
+                    card.classList.remove("unread");
+                    card.classList.add("read");
+                    card.textContent="Read";
+                }
+            }
+        }
+    }
+}
+
+//Book class
+
+class Book{
+    #id;
+    #title;
+    #author;
+    #pages;
+    #read;
+    constructor(title, author, pages, read){
+        this.id=crypto.randomUUID();
+        this.title=title;
+        this.author=author;
+        this.pages=pages
+        this.read=read
+    }
+
+    get ID(){
+        return this.#id;
+    }
+    set ID(id){
+        this.#id=id;
+    }
+    get title(){
+        return this.#title;
+    }
+    set title(title){
+        this.#title=title;
+    }
+    get author(){
+        return this.#author;
+    }
+    set author(author){
+        this.#author=author;
+    }
+    get pages(){
+        return this.#pages;
+    }
+    set pages(pages){
+        this.#pages=pages;
+    }
+    get read(){
+        return this.#read;
+    }
+    set read(read){
+        this.#read=read;
+    }
+
+
 
 }
-/* Form Controls */
+
+
+
+//scripts
 
 const dialog = document.getElementById("dialog");
 const closeButton=document.querySelector("#close-button");
@@ -102,42 +188,3 @@ form.addEventListener("submit", (event) => {
 
 
 })
-
-/* remove button */
-function removeBook(id, cardElement) {
-  myLibrary = myLibrary.filter(book => book.id !== id);
-  cardElement.remove();
-}
-
-function readToggle(id, cardElement){
-    for(let i=0; i<myLibrary.length; i++){
-        if(myLibrary[i].id==id){
-            if(myLibrary[i].read==true){
-                myLibrary[i].read=false;
-                const card=cardElement.querySelector(".read");
-                card.classList.remove("read");
-                card.classList.add("unread");
-                card.textContent="Unread";
-            }
-            else{
-                myLibrary[i].read=true;
-                const card=cardElement.querySelector(".unread");
-                card.classList.remove("unread");
-                card.classList.add("read");
-                card.textContent="Read";
-            }
-        }
-    }
-}
-
-
-
-/*
-const btn=document.querySelector(".add");
-btn.onclick=()=>alert("Hello World");*/
-
-const book1=new Book("Lebron", "James", 100, true);
-const book2= new Book("Steph", "Curry", 100, false);
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-
