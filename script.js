@@ -17,6 +17,7 @@ class Library{
 
     addBookToLibrary(book){
         this.increaseBooks();
+        this.#books.push(book);
         this.addBook(book);
     }
 
@@ -58,6 +59,11 @@ class Library{
             readButton.textContent="Unread";
         }
 
+        readButton.addEventListener("click", () => {
+            book.toggleRead();                    
+            updateReadButton(book, bookCard);     
+        })
+
         readButton.addEventListener("click", ()=>{
             readToggle(book.id, bookCard);
         })
@@ -65,7 +71,7 @@ class Library{
         button.textContent = "Remove";
         button.classList.add("remove-btn");
         button.addEventListener("click", ()=>{
-            removeBook(book.id, bookCard);
+            library.removeBook(book.id, bookCard);
         })
 
         div.appendChild(title);
@@ -124,10 +130,10 @@ class Book{
         this.read=read
     }
 
-    get ID(){
+    get id(){
         return this.#id;
     }
-    set ID(id){
+    set id(id){
         this.#id=id;
     }
     get title(){
@@ -155,6 +161,11 @@ class Book{
         this.#read=read;
     }
 
+    toggleRead(){
+        this.#read=!this.#read;
+    }
+
+
 
 
 }
@@ -180,7 +191,7 @@ form.addEventListener("submit", (event) => {
     const pages=formData.get("pages");
     const read=formData.get("read") === "on"; 
     const newBook= new Book(title, author, pages, read);
-    addBookToLibrary(newBook);
+    library.addBookToLibrary(newBook);
 
     const myDialog=document.querySelector("#dialog")
     dialog.close();
@@ -188,3 +199,21 @@ form.addEventListener("submit", (event) => {
 
 
 })
+
+function updateReadButton(book, cardElement) {
+    const readButton = cardElement.querySelector(".read-badge");
+    
+    if (book.read) {
+        readButton.classList.remove("unread");
+        readButton.classList.add("read");
+        readButton.textContent = "Read";
+    } else {
+        readButton.classList.remove("read");
+        readButton.classList.add("unread");
+        readButton.textContent = "Unread";
+    }
+}
+
+
+
+const library=new Library();
