@@ -134,3 +134,7 @@ dialog {
     border-radius: 10px;
     border: 2px solid rgb(73, 57, 0) ;
 }
+
+.book-div input:invalid {
+  border: 1px solid #c92f2f;
+}

@@ -216,4 +216,42 @@ function updateReadButton(book, cardElement) {
 
 
 
+const titleField=document.getElementById("title");
+
+titleField.addEventListener("input", (event) => {
+    if(titleField.validity.valueMissing){
+        titleField.setCustomValidity("Please add a title.")
+    }
+    else{
+        titleField.setCustomValidity("")
+    }
+})
+
+const authorField=document.getElementById("author");
+
+authorField.addEventListener("input", (event) => {
+    if(authorField.validity.valueMissing){
+        authorField.setCustomValidity("Please add an author.")
+    }
+    else{
+        authorField.setCustomValidity("")
+    }
+})
+
+const pagesField=document.getElementById("pages");
+
+pagesField.addEventListener("input", (event) => {
+    if(pagesField.validity.valueMissing){
+        pagesField.setCustomValidity("Please add a page number.")
+    }
+    else{
+        pagesField.setCustomValidity("")
+    }
+})
+
+titleField.setCustomValidity("Please add a title.");
+authorField.setCustomValidity("Please add an author.");
+pagesField.setCustomValidity("Please add a page number.");
+
+
 const library=new Library();
